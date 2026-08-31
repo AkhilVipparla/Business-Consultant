@@ -163,12 +163,6 @@ These are enforced by convention, not by tooling — keep them in mind if you're
 
 See `anchor.md/ARCHITECTURE.md`, `anchor.md/DECISIONS.md`, and `anchor.md/DATABASE_SCHEMA.md` for the full design rationale.
 
-## Troubleshooting
-
-- **`litellm.RateLimitError` / 429s**: your active model's free-tier token-per-minute or request-per-minute cap was exceeded. Check the error message for whether it's a per-minute or per-day limit, and consider a lighter model or `HEAVY_LLM_PROVIDER` split (already applied to the two heaviest prompts by default).
-- **`GET /ventures/{id}/report` returns 404**: either the venture hasn't finished validating yet, or its last run failed/was interrupted before a report was persisted. Check `GET /ventures/{id}` for its `status`.
-- **`GET /ventures/{id}/validate` returns 409**: a run is already in progress for that venture. If you're sure it isn't (e.g. the server restarted mid-run), it will self-recover after `STALE_RUN_TIMEOUT_SECONDS` (10 minutes by default) — or restart sooner by lowering that setting.
-- **Import/module errors on backend startup**: make sure the virtual environment is activated and `pip install -r requirements.txt` completed without errors.
 
 ## Current status
 
