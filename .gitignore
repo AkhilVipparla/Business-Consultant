@@ -1,0 +1,15 @@
+
+# anchor.md context folder
+anchor.md/
+
+# backend (Python / FastAPI)
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.db
+backend/.env
+!backend/.env.example
+
+# frontend env files (frontend/.gitignore also covers node_modules, .next, etc.)
+frontend/.env*
+!frontend/.env.example
